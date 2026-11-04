@@ -1,0 +1,690 @@
+/* =========================================================
+   BÀI TẬP CÁ NHÂN BUỔI 2: HTML5 & CSS3
+   Môn: Phát triển ứng dụng Web/TMĐT - UEH
+   Giảng viên hướng dẫn: TS. Nguyễn Mạnh Tuấn
+   Sinh viên thực hiện: Huỳnh Thế An (MSSV: 31241021983)
+   Dự án: Showroom Ô tô điện VinFast (High-Ticket EV Store)
+   ========================================================= */
+
+/* =========================================================
+   1. RESET & CSS BOX MODEL (Bước 3 & Bước 4)
+   ========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Giúp kích thước gồm cả border và padding, tránh tràn layout */
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: radial-gradient(circle at 50% 0%, #172554 0%, #0b1329 35%, #030712 100%);
+    background-attachment: fixed;
+    color: #f8fafc;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Quy tắc ảnh chống tràn & giữ tỷ lệ (Bước 3 & Bước 6) */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* =========================================================
+   2. HEADER & MENU ĐIỀU HƯỚNG - FLEXBOX (Bước 5)
+   ========================================================= */
+.ev-header {
+    background: rgba(11, 19, 41, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-wrap {
+    display: flex; /* Flexbox cho header */
+    justify-content: space-between; /* Đẩy Logo sang cực trái, Menu sang cực phải */
+    align-items: center; /* Căn giữa theo trục thẳng đứng */
+    gap: 20px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+}
+
+.brand-v-logo {
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, #1464f4 0%, #38bdf8 100%);
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(20, 100, 244, 0.4);
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-name {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 2.5px;
+    color: #ffffff;
+}
+
+.brand-sub {
+    font-size: 10px;
+    color: #60a5fa;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+}
+
+/* Menu điều hướng dạng danh sách chuẩn HTML5 (Bước 2 & 5) */
+.nav-links .nav-list {
+    display: flex; /* Flexbox căn ngang các mục menu */
+    align-items: center;
+    list-style: none; /* Bỏ dấu chấm tròn danh sách */
+    gap: 24px; /* Khoảng cách giữa các liên kết menu */
+}
+
+.nav-item {
+    font-size: 14px;
+    font-weight: 600;
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+/* Pseudo-class :hover (Bước 7) */
+.nav-item:hover, 
+.nav-item.active {
+    color: #38bdf8;
+}
+
+.nav-btn-highlight {
+    background: rgba(20, 100, 244, 0.2);
+    border: 1px solid #2563eb;
+    color: #ffffff;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.nav-btn-highlight:hover {
+    background: #1464f4;
+    box-shadow: 0 4px 16px rgba(20, 100, 244, 0.5);
+}
+
+/* =========================================================
+   3. HERO BANNER
+   ========================================================= */
+.hero-banner {
+    padding: 60px 0 40px 0;
+    text-align: center;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(20, 100, 244, 0.15);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    color: #38bdf8;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 6px 16px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    font-size: 38px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+    line-height: 1.25;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.hero-desc {
+    font-size: 16px;
+    color: #94a3b8;
+    margin-bottom: 32px;
+    line-height: 1.6;
+}
+
+.hero-trust-bar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 16px 24px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50px;
+    backdrop-filter: blur(8px);
+}
+
+.trust-item {
+    font-size: 13px;
+    color: #e2e8f0;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* =========================================================
+   4. SHOWROOM & DANH SÁCH SẢN PHẨM (CSS GRID - Bước 6)
+   ========================================================= */
+.ev-showroom {
+    padding: 40px 0 80px 0;
+}
+
+.section-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 36px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 20px;
+}
+
+.heading-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+}
+
+.heading-sub {
+    font-size: 14px;
+    color: #94a3b8;
+    margin-top: 4px;
+}
+
+.ev-status-pill {
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid #10b981;
+    color: #34d399;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #10b981;
+}
+
+/* Lưới sản phẩm dạng CSS Grid (Bước 6) */
+.ev-grid {
+    display: grid;
+    /* Mặc định 4 cột trên màn hình Desktop */
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px; /* Khoảng cách đều giữa các ô lưới */
+}
+
+/* =========================================================
+   5. THẺ SẢN PHẨM - CSS BOX MODEL & SELECTOR (Bước 4)
+   ========================================================= */
+.ev-card {
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Border */
+    border-radius: 16px; /* Bo góc viền */
+    margin: 0; /* Margin ngoài */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Hiệu ứng rê chuột nhấc thẻ (Bước 7) */
+.ev-card:hover {
+    transform: translateY(-8px);
+    border-color: #3b82f6;
+    box-shadow: 0 20px 40px rgba(20, 100, 244, 0.3);
+}
+
+.ev-card.card-featured {
+    border-color: rgba(239, 68, 68, 0.4);
+}
+
+.ev-card.card-featured:hover {
+    border-color: #ef4444;
+    box-shadow: 0 20px 40px rgba(239, 68, 68, 0.3);
+}
+
+/* Khung hình ảnh và tỉ lệ không méo (Bước 6) */
+.card-visual {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10; /* Tỷ lệ chuẩn ảnh chụp xe hơi */
+    background: radial-gradient(circle, #1e293b 0%, #0f172a 100%);
+    overflow: hidden;
+}
+
+.car-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Chống méo hình, cắt cúp cân đối */
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ev-card:hover .car-img {
+    transform: scale(1.08);
+}
+
+/* Huy hiệu phân khúc */
+.badge-segment {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    padding: 5px 10px;
+    border-radius: 6px;
+    z-index: 2;
+    backdrop-filter: blur(8px);
+    color: #ffffff;
+}
+
+.badge-mini { background: rgba(30, 64, 175, 0.85); border: 1px solid #3b82f6; }
+.badge-bsuv { background: rgba(15, 118, 110, 0.85); border: 1px solid #14b8a6; }
+.badge-hot { background: rgba(185, 28, 28, 0.9); border: 1px solid #ef4444; }
+.badge-flagship { background: rgba(180, 83, 9, 0.9); border: 1px solid #f59e0b; }
+
+/* Bảng chấm chọn màu sơn */
+.color-palette {
+    position: absolute;
+    bottom: 10px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 2;
+    background: rgba(15, 23, 42, 0.85);
+    padding: 4px 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.color-label {
+    font-size: 10px;
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+.color-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: transform 0.2s ease, outline 0.2s ease;
+}
+
+.color-dot:hover, 
+.color-dot.active {
+    transform: scale(1.15);
+    outline: 2px solid #38bdf8;
+    outline-offset: 1px;
+}
+
+.dot-yellow { background-color: #facc15; }
+.dot-green { background-color: #16a34a; }
+.dot-red { background-color: #dc2626; }
+.dot-white { background-color: #f8fafc; }
+.dot-blue { background-color: #2563eb; }
+.dot-silver { background-color: #cbd5e1; }
+.dot-black { background-color: #0f172a; }
+.dot-grey { background-color: #64748b; }
+
+/* Phần thân nội dung thẻ xe (Box Model: Padding) */
+.card-body {
+    padding: 22px; /* Padding tạo không gian thở bên trong thẻ */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.car-category {
+    font-size: 11px;
+    font-weight: 700;
+    color: #60a5fa;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+/* Descendant selector định dạng tên xe */
+.ev-card .car-name {
+    font-size: 17px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.35;
+    margin-bottom: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 46px; /* Cố định chiều cao dòng tiêu đề chống lệch đáy */
+}
+
+/* Cụm 3 thông số pin & vận hành (Grid con) */
+.ev-specs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    padding: 10px 6px;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.spec-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.spec-icon {
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+.spec-val {
+    font-size: 13px;
+    font-weight: 800;
+    color: #38bdf8;
+    letter-spacing: -0.2px;
+}
+
+.spec-label {
+    font-size: 9px;
+    color: #94a3b8;
+    margin-top: 2px;
+    font-weight: 500;
+}
+
+/* Khu vực Giá bán & Thuê pin */
+.pricing-container {
+    margin-bottom: 20px;
+    padding-top: 8px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4px;
+}
+
+.price-title {
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+/* Descendant selector: Giá sản phẩm */
+.ev-card .price-number {
+    font-size: 18px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.3px;
+}
+
+.rent-note {
+    font-size: 12px;
+    color: #34d399;
+}
+
+.rent-note strong {
+    color: #6ee7b7;
+}
+
+/* =========================================================
+   6. NHÓM NÚT THAO TÁC - FLEXBOX & HOVER/FOCUS (Bước 5 & 7)
+   ========================================================= */
+.card-action {
+    margin-top: auto; /* Tự động đẩy khối nút xuống sát đáy thẻ */
+}
+
+.action-buttons-group {
+    display: flex; /* Flexbox nhóm 2 nút */
+    gap: 10px;
+    align-items: stretch;
+}
+
+/* Nút "Xem chi tiết" (Thẻ <a> định dạng thành nút) */
+.btn-detail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.btn-detail:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #38bdf8;
+    color: #38bdf8;
+}
+
+/* Nút "Đặt cọc giữ xe" */
+.btn-deposit {
+    flex: 1;
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    color: #ffffff;
+    padding: 10px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 14px rgba(29, 78, 216, 0.4);
+}
+
+.btn-deposit span:first-child {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.btn-deposit .btn-sub {
+    font-size: 10px;
+    color: #bfdbfe;
+    font-weight: 600;
+}
+
+.btn-deposit:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
+    transform: translateY(-2px);
+}
+
+.btn-deposit.btn-featured {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    border-color: rgba(248, 113, 113, 0.4);
+    box-shadow: 0 4px 14px rgba(220, 38, 38, 0.4);
+}
+
+.btn-deposit.btn-featured:hover {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.6);
+}
+
+/* =========================================================
+   7. TIÊU CHUẨN TRUY CẬP (A11Y) - FOCUS-VISIBLE (Bước 7)
+   ========================================================= */
+.btn-deposit:focus-visible,
+.btn-detail:focus-visible,
+.nav-item:focus-visible,
+.nav-btn-highlight:focus-visible,
+.color-dot:focus-visible {
+    outline: 3px solid #f59e0b; /* Viền cam tương phản cao khi điều hướng bàn phím */
+    outline-offset: 3px;
+}
+
+/* =========================================================
+   8. FOOTER CHÂN TRANG
+   ========================================================= */
+.ev-footer {
+    background: #020617;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 48px 0;
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.footer-logo {
+    font-size: 16px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 1.5px;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.footer-sub {
+    font-size: 12px;
+    color: #64748b;
+    margin-top: 4px;
+}
+
+.footer-guarantee {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 12px;
+    color: #cbd5e1;
+}
+
+/* =========================================================
+   9. THỰC HÀNH RESPONSIVE DESIGN (Bước 8: 1366px, 768px, 390px)
+   ========================================================= */
+/* Tablet (dưới 1100px): Thu về 2 cột theo đúng đề bài Bước 6 */
+@media (max-width: 1100px) {
+    .ev-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+}
+
+/* Mobile (dưới 768px, bao gồm 390px): 1 cột chống tràn */
+@media (max-width: 768px) {
+    .header-wrap {
+        flex-direction: column;
+        gap: 14px;
+        text-align: center;
+    }
+
+    .nav-links .nav-list {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .hero-title {
+        font-size: 26px;
+    }
+
+    .hero-desc {
+        font-size: 14px;
+    }
+
+    .hero-trust-bar {
+        border-radius: 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .section-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .ev-grid {
+        grid-template-columns: 1fr; /* 1 cột trên màn hình điện thoại */
+        gap: 20px;
+    }
+
+    .card-body {
+        padding: 18px;
+    }
+
+    .ev-card .car-name {
+        font-size: 16px;
+    }
+
+    .action-buttons-group {
+        flex-direction: column; /* Xếp dọc 2 nút trên mobile nhỏ */
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
