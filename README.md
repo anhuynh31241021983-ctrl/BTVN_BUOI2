@@ -1,10 +1,9 @@
 # BÀI TẬP CÁ NHÂN - BUỔI 2: HTML5 & CSS3
 ## MÔN HỌC: PHÁT TRIỂN ỨNG DỤNG WEB / THƯƠNG MẠI ĐIỆN TỬ (UEH)
 - **Giảng viên hướng dẫn:** TS. Nguyễn Mạnh Tuấn (`tuannm@ueh.edu.vn`)
-- **Sinh viên thực hiện:** Huỳnh Thế An
+- **Sinh viên thực hiện:** Huỳnh Khánh An
 - **Mã số sinh viên (MSSV):** 31241021983
-- **Lớp chuyên ngành:** Thương mại Điện tử - Khóa 50 (UEH)
-- **Repository GitHub:** [https://github.com/anhuynh31241021983-ctrl/BTVN_BUOI2](https://github.com/anhuynh31241021983-ctrl/BTVN_BUOI2)
+- **Lớp chuyên ngành:** Thương mại Điện tử - Khóa 50
 
 ---
 
@@ -171,23 +170,4 @@ Mục tiêu trọng tâm của bài tập Buổi 2:
 
 ---
 
-## 8. Sẵn sàng cho yêu cầu sửa mã trực tiếp của Giảng viên (Mục 13)
 
-| Yêu cầu của Giảng viên | File cần mở | Thao tác can thiệp nhanh |
-| :--- | :---: | :--- |
-| **Đổi màu giá sản phẩm** | `css/style.css` | Tìm `.ev-card .price-number`, đổi `color: #ffffff;` thành `color: #f59e0b;` (vàng kim) hoặc `#38bdf8;` (xanh điện). |
-| **Thay đổi số cột của danh sách xe** | `css/style.css` | Tìm `.ev-grid`, đổi `repeat(4, minmax(0, 1fr))` thành `repeat(3, minmax(0, 1fr))` (3 cột) hoặc `repeat(2, minmax(0, 1fr))` (2 cột). |
-| **Thay đổi khoảng cách đệm bên trong thẻ (Padding)** | `css/style.css` | Tìm `.card-body`, đổi `padding: 22px;` thành `padding: 30px;` (thoáng hơn) hoặc `14px;` (gọn lại). |
-| **Điều chỉnh khoảng cách menu** | `css/style.css` | Tìm `.nav-links .nav-list`, đổi `gap: 24px;` thành `gap: 36px;`. |
-| **Sửa hoặc thêm thuộc tính `alt`** | `index.html` | Tìm thẻ `<img class="car-img">`, cập nhật nội dung văn bản trong thuộc tính `alt="..."`. |
-
----
-
-## 9. Cập nhật và triển khai lên GitHub
-Mã nguồn đã được commit và push lên nhánh `main` của repository GitHub:
-```bash
-git add .
-git commit -m "Practice HTML5 semantics, CSS Box Model, Flexbox and Grid - Buoi 2 UEH"
-git push origin main
-```
-URL: [https://github.com/anhuynh31241021983-ctrl/BTVN_BUOI2](https://github.com/anhuynh31241021983-ctrl/BTVN_BUOI2)
