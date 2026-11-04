@@ -13,7 +13,6 @@
 - **Kết quả AI phản hồi:** AI nhận diện mã nguồn đã có cấu trúc cơ bản, tuy nhiên thanh điều hướng đang dùng thẻ `<span>` thay vì thẻ `<a>` và danh sách `<ul>/<li>`. Thẻ xe chưa có nút xem chi tiết và các thẻ chưa có trạng thái `:focus-visible`.
 - **Phần tự điều chỉnh của sinh viên:** Em lập bảng so sánh 3 vấn đề tồn tại (Cấu trúc Semantic, Box Model cho thẻ xe, Flexbox/Grid bố cục) và xác định rõ phạm vi cải tiến tập trung vào thanh điều hướng Header và lưới 4 dòng xe chiến lược.
 
-
 ### Prompt 2: Hướng dẫn cấu trúc HTML5 Semantic cho thẻ xe và menu
 - **Nội dung Prompt:**
   > *"Tôi muốn chuẩn hóa Semantic Web theo yêu cầu của Thầy Tuấn: 1. Chuyển đổi thanh điều hướng menu từ span sang cấu trúc thẻ `<nav>`, `<ul>`, `<li>`, `<a>`; 2. Đặt thuộc tính `alt` chi tiết cho từng dòng xe VF 3, VF 6, VF 7, VF 9; 3. Bổ sung cụm nút hành động gồm nút 'Xem chi tiết' và 'Đặt cọc giữ xe' bằng Flexbox. Hãy đưa ra giải pháp ngắn gọn."*
